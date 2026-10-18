@@ -2,14 +2,15 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c17
 
-# Input source and the program `make` will produce.
-SRC = src/main.c
+# Every .c file that defines a function must be listed here.
+# sorting.c is #included from main.c, so it is not listed again.
+SRC = src/main.c src/lib/cloneArray.c src/lib/printArray.c
 BIN = build/algorithms
 
 # `make` with no arguments runs the first target, which is `all`.
 all: $(BIN)
 
-# Rebuild the program when main.c is newer than the binary.
+# Rebuild the program when any source file is newer than the binary.
 $(BIN): $(SRC)
 	mkdir -p build
 	$(CC) $(CFLAGS) -o $(BIN) $(SRC)
