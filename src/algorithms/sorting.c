@@ -18,3 +18,25 @@ int *insertionSort(int array[], int length) {
 
   return list;
 }
+
+int *selectionSort(int array[], int length) {
+  int *list = cloneArray(array, length);
+
+  for (int i = 0; i < length; i++) {
+    int currentValue = list[i];
+    int smallestValue = currentValue;
+    int smallestIndex = i;
+
+    for (int j = i; j < length; j++) {
+      if (list[j] < smallestValue) {
+        smallestValue = list[j];
+        smallestIndex = j;
+      }
+    }
+
+    list[i] = smallestValue;
+    list[smallestIndex] = currentValue;
+  }
+
+  return list;
+}

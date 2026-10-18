@@ -19,5 +19,8 @@ int main(void) {
   int *insertionSortArray = insertionSort(intArray, length);
   printArray(insertionSortArray, length, "Insertion Sort");
 
+  int *selectionSortArray = insertionSort(intArray, length);
+  printArray(selectionSortArray, length, "Selection Sort");
+
   return 0;
 }
