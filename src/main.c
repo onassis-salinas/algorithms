@@ -31,5 +31,8 @@ int main(void) {
   printf("Linear Search: %d \n",
          linearSearch(sortedArray, length, lookupValue));
 
+  printf("Binary Search: %d \n",
+         binarySearch(sortedArray, lookupValue, 0, length));
+
   return 0;
 }
