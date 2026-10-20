@@ -12,18 +12,22 @@ int linearSearch(int array[], int length, int lookup) {
   return -1;
 }
 
-int binarySearch(int array[], int lookup, int start, int end) {
-  int middle = start + (end - start) / 2;
+int binarySearch(int array[], int length, int lookup) {
+  int start = 0;
+  int end = length;
 
-  if (array[middle] == lookup) {
-    return middle;
+  while (start < end) {
+    int middle = start + ((end - start) / 2);
+
+    if (array[middle] < lookup) {
+      start = middle + 1;
+    } else {
+      end = middle;
+    }
   }
-  if (start == end) {
-    return -1;
+
+  if (start < length && array[start] == lookup) {
+    return start;
   }
-  if (array[middle] > lookup) {
-    return binarySearch(array, lookup, start, middle);
-  } else {
-    return binarySearch(array, lookup, middle, end);
-  }
+  return -1;
 }
